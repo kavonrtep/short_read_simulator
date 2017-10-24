@@ -1,0 +1,9 @@
+#+TITLE:  Sequence Read Simulator
+#+AUTHOR: Petr Novak
+
+Create pseudo short reads from long reads (Illumina Like). 
+
+* Requirements
+- python version > 3.4
+- biopython
+
