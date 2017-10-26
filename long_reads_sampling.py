@@ -9,8 +9,9 @@ from long2short import get_sequences_summary
 
 def get_args():
     '''Parses command line arguments '''
-    description = ("Create sample of long reads, instead of setting"
-                   "number of reads to be sampled, total sequence is defined")
+    description = ("Create sample of long reads, instead"
+                   " of setting number of reads to be sampled,"
+                   "total length of all sampled sequences is defined")
 
     parser = argparse.ArgumentParser(
         description=description,
