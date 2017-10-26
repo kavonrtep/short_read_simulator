@@ -19,12 +19,12 @@ Sequences_summary = namedtuple('Fasta_summary',
 Coordinates = namedtuple('Coordinates', "id start1 end1 start2 end2")
 
 
-def sequences_summary(seq_file, seq_format):
+def get_sequences_summary(seq_file):
     ''' return basic characteristic of sequences '''
     id_length = OrderedDict()
     totat_length = 0
     N = 0
-    for seqs in SeqIO.parse(seq_file, seq_format):
+    for seqs in SeqIO.parse(seq_file, SEQ_FORMAT):
         id_length[seqs.id] = len(seqs)
         totat_length += len(seqs)
         N += 1
@@ -54,7 +54,7 @@ def extract_short_reads(summary, args):
     '''yield short reades sampled from long reads
     Arguments:
     summary.. named tuple specifie sequences properties, path, length, idslist
-    args ..... Define how shorte sequences should be generated
+    args ..... Define how short sequences should be generated
     '''
     pos = get_short_pseudoreads_position(summary, args)
     coords = next(pos)
@@ -92,7 +92,7 @@ def long2short(args):
                    coverage, insert length, max number of sequences which will be return
 
     '''
-    summary = sequences_summary(args.input.name, SEQ_FORMAT)
+    summary = get_sequences_summary(args.input.name)
     with open(args.output.name, 'w') as f:
         for i in extract_short_reads(summary, args):
             SeqIO.write(i, f, SEQ_FORMAT)
