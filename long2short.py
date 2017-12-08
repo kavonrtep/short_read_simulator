@@ -8,8 +8,8 @@ from Bio import SeqIO
 
 SEQ_FORMAT = "fasta"
 # Default sampling, used on argparse:
-DEFAULT_READ_LENGTH = 100
-DEFAULT_INSERT_LENGTH = 600
+DEFAULT_READ_LENGTH = 200
+DEFAULT_INSERT_LENGTH = 700
 DEFAULT_COVERAGE = 0.1
 
 Sequences_summary = namedtuple('Fasta_summary',
