@@ -57,7 +57,6 @@ def make_sequence_sample(args, seq_summary):
         cummulative_length += seq_summary.id_length[seq_id]
         if cummulative_length >= args.total_length:
             break
-    print(selected_seq_id)
     # to make it efficient same orger is necesary
     selected_seq_id_ordered = [i
                                for i in seq_summary.id_length
@@ -91,6 +90,9 @@ def main():
               file=sys.stderr)
         sys.exit(1)
 
+    print("input sequence info")
+    print("total length: ", seq_summary.total_length)
+    print("number of sequences: ", seq_summary.number_of_sequence)
     make_sequence_sample(args, seq_summary)
 
 

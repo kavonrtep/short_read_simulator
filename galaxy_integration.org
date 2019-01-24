@@ -66,3 +66,9 @@ file must be manually edited
 # it requires planemo server running!
 planemo shed_create --shed_target local
 #+END_SRC
+
+# create tarball which can be uploaded to repository manualy
+
+#+BEGIN_SRC sh
+planemo shed_build .
+#+END_SRC
